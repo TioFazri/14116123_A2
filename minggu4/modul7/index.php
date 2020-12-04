@@ -1,8 +1,8 @@
 <?php
-session_start();
-if(isset($_SESSION['user'])) {
-    header('locatiom:home.php');
-}
+    session_start();
+    if(isset($_SESSION['user'])) {
+        header('locatiom:home.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ if(isset($_SESSION['user'])) {
     <div>
         <input type="text" name="password" placeholder="password" required>
     </div>
-    <button type="submit">login</button>
+    <button type="submit" name="login">login</button>
     </form>
 
     <?php

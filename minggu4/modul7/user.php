@@ -1,29 +1,25 @@
 <?php
-include_once('koneksi.php');
-class user extends dbconnection {
-    public function_construct() {
-        parent::_construct();
+include_once('DbConnection.php');
+class user extends dbconnection{
+    public function __construct(){
+        parent:: __construct();
     }
-
-    public function check_login($username, $password) {
-        $sql = "SELECT * FROM " modul WHERE username = '$username' and password = '$password';
+    public function check_login($username, $password){
+        $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
         $query = $this->connection->query($sql);
-
-        if($query->num_rows > 0) {
-            $row = $query-> fetch_array();
+        if($query->num_rows > 0){
+            $row = $query->fetch_array ();
             return $row['id'];
-        } else {
+        }else{
             return false;
         }
     }
-
-    public function details($sql) {
+    public function details($sql){
         $query = $this->connection->query($sql);
-        $row = $query -> fetch_array();
+        $row = $query->fetch_array();
         return $row;
     }
-
-    public function escape_string($value) {
+    public function escape_string($value){
         return $this->connection->real_escape_string($value);
     }
 }

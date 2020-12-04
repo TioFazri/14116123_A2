@@ -1,15 +1,15 @@
 <?php
-class dbconnection {
+class DbConnection {
     private $host = 'localhost';
     private $username = 'root';
     private $password = 'root';
     private $database = 'minggu4';
     protected $connection;
 
-    public function_construct() {
+    public function __construct() {
         if(!isset ($this->connection)) {
             $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
-            if (!$this->connection;){
+            if (!$this->connection){
                 echo "cannot connect";
                 exit;
             }
