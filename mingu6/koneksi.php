@@ -7,5 +7,5 @@
     $kon = mysqli_connect ($host, $user, $password, $db);
     if (!$kon) {
         die("koneksi error:".mysqli_connect_error());
-    }
+    } 
 ?>

@@ -21,18 +21,23 @@
         <td><?php echo $data['nama']?></td>
         <td><?php echo $data['prodi']?></td>
         <td><?php echo $data['angkatan']?></td>
-        <td><button class="btn_delete">delete</button></td>
+        <td><a href="delete.php?nim=<?php echo $data['nim']; ?>">Delete</a> </td>
     </tr>
 <?php endwhile; ?>
 </table>
 
 <script>
-$(document).ready(function(){
-
- $("#tbUser").on('click','.btn_delete',function(){
-       $(this).closest('tr').remove();
-     });
-
-});
-
+    $(document).ready(function() {
+            $('#tampil_data').load("tampil.php");
+            $('#btn_tampil').click(function(){
+                $.ajax({
+                    type : 'POST',
+                    url : 'delete.php',
+                    data : data,
+                    cache : false,
+                    success : function(data){
+                    }
+                });
+            });
+        });
 </script>
